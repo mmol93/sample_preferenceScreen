@@ -2,15 +2,21 @@
 <PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     >
-
-
     <PreferenceCategory android:title="Simple Alarm Setting">
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="alarmset"
+            android:title="Switch preference" />
+
         <Preference
+            android:key="bellset"
             android:summary="현재 벨소리"
             android:title="벨소리 설정"
             app:icon="@android:drawable/ic_popup_reminder"
             app:allowDividerAbove="true"
-            app:allowDividerBelow="true">
+            app:allowDividerBelow="true"
+            android:dependency="alarmset"
+            >
 
             <intent
                 android:action="android.intent.action.VIEW"
@@ -22,28 +28,24 @@
             android:defaultValue="value2"
             android:entries="@array/title_list"
             android:entryValues="@array/value_list"
-            android:key="data3"
+            android:key="modeset"
             android:title="간단 알람 모드"
             android:summary="현재 모드"
             app:allowDividerAbove="true"
             app:allowDividerBelow="true"
+            android:dependency="alarmset"
             />
 
-        <ListPreference
-            android:defaultValue="value2"
-            android:entries="@array/title_list"
-            android:entryValues="@array/value_list"
-            android:key="data3"
-            android:title="알람 표시 설정"
-            app:allowDividerAbove="true"
-            app:allowDividerBelow="true"
+        <SeekBarPreference
+            android:key="alarm_volume"
+            android:title="간단 알람 볼륨"
+
             />
-
-
     </PreferenceCategory>
 
     <PreferenceCategory android:title="정보">
         <Preference
+            android:key="info"
             android:summary="앱 정보"
             android:title="버전, 오픈소스, 이메일 등"
             app:allowDividerAbove="true"
@@ -86,5 +88,14 @@
             android:entryValues="@array/value_list"
             android:key="data5"
             android:title="멀티 리스트 요소" />
+        <ListPreference
+            android:defaultValue="value2"
+            android:entries="@array/title_list"
+            android:entryValues="@array/value_list"
+            android:key="simpleAlarmSetting"
+            android:title="알람 표시 설정"
+            app:allowDividerAbove="true"
+            app:allowDividerBelow="true"
+            />
     </PreferenceCategory>
 </PreferenceScreen>
