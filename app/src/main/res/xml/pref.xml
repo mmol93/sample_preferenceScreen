@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+
+    <PreferenceCategory android:title="Simple Alarm Setting">
+        <Preference
+            android:summary="현재 벨소리"
+            android:title="벨소리 설정"
+            app:icon="@android:drawable/ic_popup_reminder"
+            app:allowDividerAbove="true"
+            app:allowDividerBelow="true">
+
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:targetClass="com.example.sample_preferencesscreen.settingActivity"
+                android:targetPackage="com.example.sample_preferencesscreen" />
+        </Preference>
+
+        <ListPreference
+            android:defaultValue="value2"
+            android:entries="@array/title_list"
+            android:entryValues="@array/value_list"
+            android:key="data3"
+            android:title="간단 알람 모드"
+            android:summary="현재 모드"
+            app:allowDividerAbove="true"
+            app:allowDividerBelow="true"
+            />
+
+        <ListPreference
+            android:defaultValue="value2"
+            android:entries="@array/title_list"
+            android:entryValues="@array/value_list"
+            android:key="data3"
+            android:title="알람 표시 설정"
+            app:allowDividerAbove="true"
+            app:allowDividerBelow="true"
+            />
+
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="정보">
+        <Preference
+            android:summary="앱 정보"
+            android:title="버전, 오픈소스, 이메일 등"
+            app:allowDividerAbove="true"
+            app:allowDividerBelow="true">
+
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:targetClass="com.example.sample_preferencesscreen.settingActivity"
+                android:targetPackage="com.example.sample_preferencesscreen" />
+
+        </Preference>
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="입력요소">
+
+        <EditTextPreference
+            android:defaultValue="안녕하세요"
+            android:key="data1"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:summary="문자열 입력 요소"
+            android:title="문자열 입력"
+            android:dependency="data2"
+            app:icon="@android:drawable/btn_star" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:icon="@android:drawable/checkbox_off_background"
+            android:key="data2"
+            android:summary="체크박스 요소"
+            android:summaryOn="체크박스 on"
+            android:summaryOff="체크박스 false"
+            android:title="체크박스"
+            app:icon="@android:drawable/btn_star_big_on" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="리스트요소">
+
+        <MultiSelectListPreference
+            android:defaultValue="@array/default_list"
+            android:entries="@array/title_list"
+            android:entryValues="@array/value_list"
+            android:key="data5"
+            android:title="멀티 리스트 요소" />
+    </PreferenceCategory>
+</PreferenceScreen>
